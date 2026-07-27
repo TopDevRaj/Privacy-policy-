@@ -251,4 +251,562 @@ section.block{padding:62px 0 0}
 .mark i{
   font-family:'IBM Plex Mono',monospace;font-style:normal;
   font-size:11px;font-weight:500;letter-spacing:.1em;
-  background:linear-gradient(100deg,var(--viole
+  background:linear-gradient(100deg,var(--violet),var(--magenta));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.mark em{
+  font-style:normal;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);
+}
+section.block h2{
+  font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(24px,3.6vw,31px);letter-spacing:-.028em;line-height:1.18;margin:0 0 18px;
+}
+section.block h3{font-family:'Manrope',sans-serif;font-weight:600;font-size:17.5px;letter-spacing:-.01em;margin:30px 0 6px}
+section.block p{margin:0 0 16px;color:var(--ink-2)}
+section.block p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--violet);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{color:var(--magenta)}
+a:focus-visible,.brand:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:5px}
+.rule{height:1px;background:var(--line);border:0;margin:62px 0 0}
+
+/* callout */
+.callout{
+  position:relative;background:var(--paper-2);
+  border-radius:16px;padding:20px 22px 20px 26px;margin:24px 0 0;overflow:hidden;
+}
+.callout::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--violet),var(--magenta));
+}
+.callout p{margin:0;font-size:16px}
+
+/* list */
+ul.plain{margin:0 0 16px;padding:0;list-style:none}
+ul.plain li{position:relative;padding-left:26px;margin:0 0 11px;color:var(--ink-2)}
+ul.plain li::before{
+  content:"";position:absolute;left:3px;top:11px;width:7px;height:7px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--magenta));
+}
+
+/* permissions */
+.perm{border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;box-shadow:var(--sh-md)}
+.perm-row{
+  display:grid;grid-template-columns:minmax(0,228px) 1fr;gap:20px;
+  padding:18px 22px;border-top:1px solid var(--line-2);
+  transition:background .25s ease;
+}
+.perm-row:first-child{border-top:none}
+.perm-row:hover{background:var(--paper-2)}
+.perm-key{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.55;font-weight:500;color:var(--ink);word-break:break-word}
+.perm-why{font-size:15.5px;line-height:1.6;color:var(--mute);margin:0}
+
+/* contact */
+.contact-card{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--sh-md);padding:28px;margin-top:8px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.contact-card .panda{width:58px;height:58px}
+.contact-card .info{min-width:0;flex:1}
+.contact-card p{margin:0 0 4px}
+.contact-card p:last-child{margin:0}
+.contact-email{
+  display:inline-flex;align-items:center;gap:7px;
+  margin:4px 0 0;padding:8px 14px;
+  border-radius:999px;border:1px solid var(--line);
+  background:var(--paper-2);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:clamp(12.5px,3.6vw,14px);font-weight:600;color:var(--ink);
+  text-decoration:none;line-height:1.3;max-width:100%;
+  transition:background .2s ease,border-color .2s ease,transform .15s ease;
+}
+.contact-email span{word-break:break-all}
+.contact-email svg{flex:none;width:15px;height:15px;color:var(--violet)}
+.contact-email:hover{border-color:var(--violet);background:var(--paper)}
+.contact-email:active{transform:scale(.96)}
+.meta{color:var(--mute);font-size:14.5px;font-family:'IBM Plex Mono',monospace;letter-spacing:.03em;margin-top:8px!important}
+
+/* footer */
+footer{margin-top:74px;border-top:1px solid var(--line);padding:32px 0 60px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center}
+footer p{margin:0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+footer .dot{opacity:.4}
+
+/* ---------- reveal (premium rise) ---------- */
+.rv{
+  opacity:0;
+  transform:translateY(34px) scale(.975);
+  filter:blur(6px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);
+  will-change:transform,opacity,filter;
+}
+.rv.in{opacity:1;transform:none;filter:blur(0)}
+.rv-stagger > *{
+  opacity:0;
+  transform:translateY(20px) scale(.98);
+  filter:blur(4px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s var(--ease);
+  will-change:transform,opacity,filter;
+}
+.rv-stagger.in > *{opacity:1;transform:none;filter:blur(0)}
+.rv-stagger.in > *:nth-child(1){transition-delay:.04s}
+.rv-stagger.in > *:nth-child(2){transition-delay:.10s}
+.rv-stagger.in > *:nth-child(3){transition-delay:.16s}
+.rv-stagger.in > *:nth-child(4){transition-delay:.22s}
+.rv-stagger.in > *:nth-child(5){transition-delay:.28s}
+.rv-stagger.in > *:nth-child(6){transition-delay:.34s}
+.rv-stagger.in > *:nth-child(7){transition-delay:.40s}
+.rv-stagger.in > *:nth-child(8){transition-delay:.46s}
+
+/* intro sequence */
+.intro{opacity:0;transform:translateY(24px) scale(.98);filter:blur(5px);animation:rise 1s var(--ease) forwards}
+.intro-1{animation-delay:.05s}
+.intro-2{animation-delay:.16s}
+.intro-3{animation-delay:.28s}
+.intro-4{animation-delay:.40s}
+@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+
+/* ---------- responsive ---------- */
+@media (max-width:880px){
+  .boundary-card{grid-template-columns:1fr;gap:28px;padding:26px}
+  .out-col{border-left:none;border-top:1px dashed var(--line);padding-left:0;padding-top:28px}
+}
+@media (max-width:620px){
+  .hero{padding:44px 0 4px}
+  .perm-row{grid-template-columns:1fr;gap:6px;padding:16px 18px}
+  .boundary{padding:0 16px}
+  .contact-card{padding:22px;gap:16px}
+}
+
+/* ---------- accessibility ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.rv-stagger > *,.intro{opacity:1!important;transform:none!important;filter:none!important}
+  .connector{stroke-dashoffset:0}
+  .progress{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+<header class="site-head" id="head">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="panda" role="img" aria-label="Panda Music Player Pro"></span>
+      <span class="brand-name">Panda Music Player <span class="grad">Pro</span></span>
+    </a>
+    <span class="head-tag">Privacy</span>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-panda intro intro-1"><span class="panda" aria-hidden="true"></span></div>
+      <p class="eyebrow intro intro-2">Privacy Policy · Updated 15 July 2026</p>
+      <h1 class="intro intro-3">Your music never leaves your phone.</h1>
+      <p class="lead intro intro-4">
+        Panda Music Player Pro plays the songs that are already on your device. There's no account to
+        create, nothing to sign in to, and no library to upload. Your music, playlists and listening
+        history stay with you — we never receive them.
+      </p>
+      <p class="lead intro intro-4">
+        Here's what the app touches on your phone, and the four things that ever travel out.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE: THE BOUNDARY ============ -->
+  <div class="boundary rv">
+    <div class="boundary-card">
+
+      <!-- what stays -->
+      <div class="phone-col">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-head">
+            <span class="panda" aria-hidden="true"></span>
+            <span>Panda Player</span>
+          </div>
+          <div class="chip">Your songs &amp; album art</div>
+          <div class="chip">Playlists &amp; favourites</div>
+          <div class="chip">Play history &amp; recents</div>
+          <div class="chip">Titles &amp; covers you edit</div>
+          <div class="chip">Theme, timer &amp; settings</div>
+          <div class="phone-seal">
+            <svg width="15" height="17" viewBox="0 0 15 17" aria-hidden="true">
+              <path d="M4 7V5a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <rect x="1.5" y="7" width="12" height="8.5" rx="2.4" fill="currentColor"/>
+            </svg>
+            <p>STORED ON THIS<br>DEVICE ONLY</p>
+          </div>
+        </div>
+        <p class="col-label">Stays on your phone</p>
+      </div>
+
+      <!-- what leaves -->
+      <div class="out-col">
+        <h2 class="out-head">What leaves your phone</h2>
+        <p class="out-sub">Only these four. Nothing else is ever sent.</p>
+
+        <div class="out-row">
+          <svg viewBox="0 0 32 22" aria-hidden="true">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+            <path class="connector" d="M1 11h21" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 6.5L24 11l-5 4.5" fill="none" stroke="url(#g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <p class="out-name">Song name &amp; artist</p>
+            <p class="out-desc">Sent to <code>lrclib.net</code> only when the app looks up lyrics — so it knows which song to find.</p>
+          </div>
+        </div>
+
+        <div class="out-row">
+          <svg viewBox="0 0 32 22" aria-hidden="true">
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+            <path class="connector" d="M1 11h21" fill="none" stroke="url(#g2)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 6.5L24 11l-5 4.5" fill="none" stroke="url(#g2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <p class="out-name">An ad request</p>
+            <p class="out-desc">Google AdMob receives it to pick an ad. Premium removes ads, and the request with them.</p>
+          </div>
+        </div>
+
+        <div class="out-row">
+          <svg viewBox="0 0 32 22" aria-hidden="true">
+            <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+            <path class="connector" d="M1 11h21" fill="none" stroke="url(#g3)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 6.5L24 11l-5 4.5" fill="none" stroke="url(#g3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <p class="out-name">A notification token</p>
+            <p class="out-desc">Firebase gives your app copy an anonymous token so app notices can reach it. It isn't tied to you.</p>
+          </div>
+        </div>
+
+        <div class="out-row">
+          <svg viewBox="0 0 32 22" aria-hidden="true">
+            <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+            <path class="connector" d="M1 11h21" fill="none" stroke="url(#g4)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M19 6.5L24 11l-5 4.5" fill="none" stroke="url(#g4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <p class="out-name">A Premium purchase</p>
+            <p class="out-desc">Handled entirely by Google Play. The app only reads back whether Premium is active.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>01</i><em>The app</em></span>
+      <h2>About Panda Music Player Pro</h2>
+      <p>
+        Panda Music Player Pro is an offline music player for Android. It finds the audio files already
+        stored on your phone and plays them — with gapless playback, crossfade, a sleep timer, playlists,
+        favourites, custom themes and synced lyrics.
+      </p>
+      <p>
+        Playback works with the internet switched off. The app doesn't stream music, doesn't have a
+        catalogue, and can't play anything you don't already have a file for.
+      </p>
+      <p>
+        <strong>Premium</strong> is optional, bought through Google Play. It removes ads and unlocks extras
+        like unlimited playlists and custom accent colours. Everything else works the same either way.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ COLLECTION ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>02</i><em>Collection</em></span>
+      <h2>What we collect about you</h2>
+      <p>
+        <strong>Nothing.</strong> There's no sign-up, no login, no profile, and no server of ours that
+        stores your data. The app has no analytics and no crash reporting. We can't see your songs, your
+        playlists, what you listen to, or who you are.
+      </p>
+
+      <div class="callout">
+        <p>If you email us, we'll have your email address and whatever you write — that's it, and only for as long as it takes to help you.</p>
+      </div>
+
+      <h3>What the app keeps on your device</h3>
+      <p>All of this lives in the app's private storage on your phone. None of it is uploaded:</p>
+      <ul class="plain rv-stagger">
+        <li>A list of the music files found on your phone, so your library loads instantly</li>
+        <li>Your playlists and favourites</li>
+        <li>Play counts, recently played and recently added</li>
+        <li>Songs you've hidden, and songs in Recently deleted</li>
+        <li>Titles and cover images you've edited yourself</li>
+        <li>Your settings — theme, accent colour, language, crossfade, sleep timer, app icon</li>
+      </ul>
+      <p>
+        Uninstalling the app deletes all of it. Your actual music files aren't touched by an uninstall —
+        they're yours, and they stay where they are.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ OUTBOUND DETAIL ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>03</i><em>Outbound</em></span>
+      <h2>The four things that leave your phone</h2>
+
+      <h3>1. Lyrics lookup</h3>
+      <p>
+        When the app fetches lyrics for a song, it sends the <strong>song title and artist name</strong> to
+        <a href="https://lrclib.net" target="_blank" rel="noopener noreferrer">LRCLIB</a>, a free open lyrics
+        database, and gets the lyrics back. Nothing else about you is sent, and no account or key is involved.
+        As with any web request, LRCLIB's servers see your IP address.
+      </p>
+
+      <h3>2. Ads</h3>
+      <p>
+        If you're not on Premium, ads come from <strong>Google AdMob</strong>. To choose an ad, AdMob receives
+        your device's <strong>advertising ID</strong>, IP address, and general device and app information.
+        That's Google's standard ad request — we don't add anything to it and we don't get a copy of it.
+        Google's handling is covered by the
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+      </p>
+
+      <h3>3. App notices</h3>
+      <p>
+        The app uses <strong>Firebase</strong> (a Google service) for two things: it downloads small pieces of
+        configuration — an announcement banner, an update notice, the link to this page — and it registers an
+        anonymous <strong>notification token</strong> so those notices can reach your app. Every install joins
+        one shared topic, so there's no per-person targeting and no identity attached. Firebase's servers see
+        your IP address and that token. The app never uploads anything to them.
+      </p>
+
+      <h3>4. Premium purchases</h3>
+      <p>
+        Buying Premium goes through <strong>Google Play Billing</strong>. Google handles the payment — we never
+        see your card, address or Google account. The app simply asks Google whether Premium is active on this
+        device and switches the features on.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ PERMISSIONS ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>04</i><em>Permissions</em></span>
+      <h2>Every permission, and why it's there</h2>
+      <p>Android shows you a list of permissions. Here's what each one actually does in this app.</p>
+
+      <div class="perm">
+        <div class="perm-row">
+          <div class="perm-key">READ_MEDIA_AUDIO<br>READ_EXTERNAL_STORAGE</div>
+          <p class="perm-why">Find and play the music files on your phone. Without this there's nothing to play. The app only reads audio.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">INTERNET<br>ACCESS_NETWORK_STATE</div>
+          <p class="perm-why">Fetch lyrics, load ads, receive app notices, and check Premium status. Playing music needs none of it.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">FOREGROUND_SERVICE<br>FOREGROUND_SERVICE_MEDIA_PLAYBACK</div>
+          <p class="perm-why">Keep the music playing when you leave the app, with the controls in your notification shade.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">POST_NOTIFICATIONS</div>
+          <p class="perm-why">Show the playback controls, and app notices if you allow them. You can turn notices off and keep the controls.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">WAKE_LOCK</div>
+          <p class="perm-why">Stop the phone from sleeping in the middle of a song.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">WRITE_SETTINGS</div>
+          <p class="perm-why">Used only when you tap “Set as ringtone”. Android asks you separately before it's granted.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">AD_ID</div>
+          <p class="perm-why">Lets AdMob read the advertising ID to serve ads. Unused once you're on Premium.</p>
+        </div>
+        <div class="perm-row">
+          <div class="perm-key">BILLING</div>
+          <p class="perm-why">Buy and restore Premium through Google Play.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ CONTROLS ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>05</i><em>Your controls</em></span>
+      <h2>What you can turn off</h2>
+      <ul class="plain rv-stagger">
+        <li><strong>Ads</strong> — buy Premium and the ad requests stop entirely.</li>
+        <li><strong>Advertising ID</strong> — Android Settings → Privacy → Ads lets you reset or delete it.</li>
+        <li><strong>App notices</strong> — turn them off in Notification settings inside the app, or in Android's settings. Playback controls keep working.</li>
+        <li><strong>Lyrics lookups</strong> — they only happen while you're using the lyrics view. Go offline and the app plays without contacting anything.</li>
+        <li><strong>Music access</strong> — revoke it in Android Settings → Apps → Panda Music Player Pro → Permissions.</li>
+        <li><strong>Everything</strong> — uninstall, and every trace the app kept on your phone goes with it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ OTHER ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>06</i><em>Good to know</em></span>
+      <h2>Children, security and changes</h2>
+
+      <h3>Children</h3>
+      <p>
+        The app isn't directed at children under 13, and we don't knowingly collect anything from them —
+        we don't knowingly collect personal information from anyone. If you believe a child has sent us
+        personal information by email, contact us and we'll delete it.
+      </p>
+
+      <h3>Security</h3>
+      <p>
+        Because your library, playlists and history never leave your phone, they're protected by your phone —
+        its lock screen and Android's app sandbox. The requests the app does make (lyrics, ads, notices,
+        purchases) travel over encrypted HTTPS connections.
+      </p>
+
+      <h3>Your rights</h3>
+      <p>
+        Laws such as the GDPR and CCPA give you the right to access, correct or delete the personal data a
+        company holds about you. We hold none — so there's nothing for us to hand over or erase. For the data
+        Google receives through ads and purchases, use
+        <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener noreferrer">Google's privacy controls</a>.
+      </p>
+
+      <h3>Changes to this policy</h3>
+      <p>
+        If the app starts doing something new with data, this page changes first, and the date at the top
+        changes with it. Significant changes are announced in the app.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ CONTACT ============ -->
+  <section class="block rv">
+    <div class="wrap">
+      <span class="mark"><i>07</i><em>Contact</em></span>
+      <h2>Questions?</h2>
+      <p>Run into a problem, or have a question about how the app handles your data? Reach out below and we'll get back to you.</p>
+
+      <div class="contact-card">
+        <span class="panda" aria-hidden="true"></span>
+        <div class="info">
+          <p><strong>Panda Music Player Pro</strong></p>
+          <p>Developer: <strong>devnur</strong></p>
+          <a class="contact-email" href="mailto:pandamusicplayer@protonmail.com">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.5C3 5.67 3.67 5 4.5 5h15c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="m4 6.5 8 6.2 8-6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>pandamusicplayer@protonmail.com</span>
+          </a>
+          <p class="meta">com.panda.musicplayerpro</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Panda Music Player Pro</p>
+    <p class="dot">·</p>
+    <p>Privacy Policy</p>
+    <p class="dot">·</p>
+    <p>15 July 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- reveal on scroll ----
+     A jump (anchor, Ctrl+F, scrollbar drag) can skip an IntersectionObserver
+     callback and leave a section stuck invisible, so sweep on scroll instead:
+     anything that reaches the viewport is revealed, and never re-hidden. */
+  var items = [].slice.call(document.querySelectorAll('.rv, .rv-stagger'));
+  if (reduce) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var head = document.getElementById('head');
+  var bar = document.getElementById('bar');
+  var ticking = false;
+
+  function frame() {
+    ticking = false;
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+
+    /* progress */
+    if (bar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+      bar.style.transform = 'scaleX(' + p + ')';
+    }
+
+    /* header hairline appears once you've moved */
+    if (head) head.classList.toggle('stuck', y > 8);
+
+    /* reveal */
+    if (!reduce && items.length) {
+      var limit = window.innerHeight * 0.92;
+      for (var i = items.length - 1; i >= 0; i--) {
+        if (items[i].getBoundingClientRect().top < limit) {
+          items[i].classList.add('in');
+          items.splice(i, 1);
+        }
+      }
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(frame); }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  frame();
+  window.addEventListener('load', function () { setTimeout(frame, 60); });
+})();
+</script>
+
+<script>
+/* Native, in-app feel: no text selection, no copy, no long-press/right-click menu. */
+(function () {
+  ['copy', 'cut', 'contextmenu', 'selectstart', 'dragstart'].forEach(function (evt) {
+    document.addEventListener(evt, function (e) { e.preventDefault(); }, false);
+  });
+})();
+</script>
+
+</body>
+</html>
